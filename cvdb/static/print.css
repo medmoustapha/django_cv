@@ -1,0 +1,33 @@
+@media print {
+    a {
+        text-decoration: none;
+        color: inherit;
+        border-bottom: none;
+    }
+    .sec-photo {
+        max-width: 20% !important;
+        display: block;
+        flex: 0 0 30%;
+
+    }
+    .sec-info {
+        max-width: 70% !important;
+        display: block;
+        flex: 0 0 70%;
+
+    }
+    .sec-contact {
+        max-width: 100% !important;
+        display: block;
+        flex: 0 0 100%;
+
+    }
+    .sec-contact ul {
+        text-align: center !important;
+        list-style: none;
+    }
+    .sec-contact ul li {
+        display: inline-block;
+
+    }
+}

@@ -1,0 +1,102 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>{{ person.first_name|title }}| CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'fontawesome/css/fontawesome-all.css' %}" />
+    <link rel="stylesheet" href="{% static 'print.css' %}" />
+</head>
+
+<body class="container">
+    <div class="row">
+      <div class="col-sm-2 sec-photo">
+        <img src="{{person.photo.url }}" class="img-fluid rounded-circle text-center" />
+        </div>
+        <div class="col-sm-5 col-12 sec-info">
+          <center><h3 class="display-6">{{ person.first_name|title }} {{ person.last_name|title }}</h1></center>
+          <!-- <h3 class="text-muted">{{ person.headline }}</h3> -->
+        </div>
+        <div class="col-sm-5 col-12 sec-contact">
+            <ul class="list-unstyled text-right">
+              <li><a href="mailto:{{person.email}}">{{ person.email }}</a> <i class="fas fa-fw fa-at"></i></li>
+              <li><a href="tel:{{ person.phone }}">{{ person.phone }}</a> <i class="fas fa-fw fa-phone"></i></li>
+              <li><a href="{{person.website}}">{{person.website}}</a> <i class="fas fa-fw fa-globe"></i></li>
+              <li>{{person.address }} <i class="fas fa-fw fa-map-marker"></i></li>
+              <li>
+                  {% if person.twitter %}
+                  <a href="https://twitter.com/{{person.twitter}}">{{person.twitter}}</a><i class="fab fa-fw fa-twitter"></i> 
+                  {% endif %}
+              </li>
+              <li>
+                  {% if person.github %}
+                  <a href="https://github.com/{{person.github}}">www.github.com/{{person.github}}</a><i class="fab fa-fw fa-github"></i> 
+                  {% endif %}
+              </li>
+                  {% if person.facebook %}
+                  <a href="https://facebook.com/{{person.facebook}}">Med El Moustapha Bebah</a><i class="fab fa-fw fa-facebook"></i> 
+                  {% endif %}
+              </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <hr />
+    <!-- <p class="lead">{{person.summary|linebreaksbr}}</p> -->
+
+    <h3 class="my-3">Experience</h3>
+
+    <ul class="list-unstyled">
+      {% for exp in experience %}
+      <li>
+          <div class="text-muted"><em>{{exp.started_at|date:"d/m/Y"}} - {{exp.ended_at|date:"d/m/Y"|default:"présent"}}</em></div>
+        <strong>{{exp.title}}</strong>, {{exp.company}}
+        
+        <p>{{ exp.description }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    <h3 class="my-3">Formation</h3>
+
+    <ul class="list-unstyled">
+      {% for form in formation %}
+      <li>
+          
+        * {{form.title}}
+        
+      </li>
+      {% endfor %}
+    </ul>
+    <h3 class="my-2">Compétences</h3>
+    <ul class="list-unstyled">
+      <li><strong>Compétence:</strong> {{skills.proficiency|join:", "}}</li>
+      <li><strong>Familier:</strong> {{skills.familiar|join:", "}}</li>
+    </ul>
+
+    <h3 class="my-3">Education</h3>
+    <ul class="list-unstyled">
+        {% for edu in education %}
+        <li class="my-2">
+            <div class="text-muted"><em>{{ edu.started_at|date:"Y" }} - {{ edu.ended_at|date:"Y" }}</em></div>
+          <strong>{{ edu.title }}</strong><br> {{ edu.institute }}
+          
+        </li>
+        {% endfor %}
+    </ul>
+    <h3 class="my-4">Langue</h3>
+
+    <ul class="list-unstyled">
+      {% for lang in langue %}
+      <li>
+          
+        <strong>{{lang.name}}</strong>   -- {{lang.niveau}}
+      </li>
+      {% endfor %}
+    </ul>
+</body>
+
+</html>

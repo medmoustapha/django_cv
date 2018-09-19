@@ -1,0 +1,42 @@
+{
+        "name": "Firas Chaaben",
+        "headline": "Software Engineer",
+        "contact": {
+            "email": "bmoez.j@gmail.com",
+            "phone": "22 222 222",
+            "website": "lejenome.github.io",
+            "address": "Rt. DSF FSF"
+        },
+        "accounts": {
+            "twitter": "lejenome",
+            "github": "lejenome",
+            "linkedin": "lejenome"
+        },
+        "summary": "I'm passion IT and cutting edge technology.",
+        "experience": [{
+            "title": "System Administrator",
+            "company": "Tik.tn",
+            "started_at": 2017,
+            "description": "Leading a remote team to migrate thousand servers to OpenStack based IaaS"
+        }, {
+            "title": "Web Developer",
+            "company": "Tik.tn",
+            "started_at": 2016,
+            "ended_at": 2017,
+            "description": "Developing a responsive UI toolkit for Android smartphones"
+        }],
+        "skills": {
+            "proficiency": ["Python", "C", "C++", "JavaScript"],
+            "familiar": ["Java", "C#"]
+        },
+        "education": [{
+            "title": "Licence Fondamentale en Science d'Informatique",
+            "institut": "Faculté des Sciences de Sfax",
+            "started_at": 2011,
+            "ended_at": 2012
+        }, {
+            "title": "Software Engineer",
+            "institut": "Enet'com",
+            "started_at": 2014
+        }]
+}
